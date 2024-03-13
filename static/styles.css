@@ -1,0 +1,155 @@
+
+* {
+    box-sizing: border-box;
+}
+
+/* Size for brand */
+nav .navbar-brand
+{
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+.index_form
+{
+    width: 280px;
+}
+.index_input_form
+{
+    width: 60px;
+}
+
+/* [Order Details] layout */
+:root {
+   --odf_inputBoxfontSize: 14px;
+   --odf_paddingLeft: 0px;
+   --odf_inputBoxWidth: 90%;
+}
+
+/* tt_SearchBox plugin parameters */
+/* .tt-search-box-input {
+    font-size: var(--odf_inputBoxfontSize);
+    padding-left: var(--odf_paddingLeft);
+    width: var(--odf_inputBoxWidth);
+}
+*/
+
+
+.odf_container {
+    display: inline-grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: auto;
+    font-size: var(--odf_inputBoxfontSize);
+    border: 1px solid hsl(120, 100%, 80%)
+}
+.odf_form {
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: left;
+}
+.odf_input {
+    box-sizing: border-box;
+    width: var(--odf_inputBoxWidth);
+    padding-left: var(--odf_paddingLeft);
+    margin-left: 7px;
+    
+}
+.odf_row {
+    display: grid;
+    gap: 0px;
+    /* border: 1px solid #080808 */
+}
+.odf_radioOptionsRow {
+    display: grid;
+    grid-column: span 2;
+    gap: 2px;
+    grid-template-columns: auto auto auto auto auto;
+    margin-bottom: 4px;
+    /* border: 1px solid #c91313 */
+  }
+.odf_radioOptionsRow > label {
+    display: flex;
+    align-items: center;
+    /* border: 1px solid #3811e9 */
+  }
+.odf_packagingDetailsRow {
+    display: grid;
+    grid-column: span 2;
+    gap: 2px;
+    grid-template-columns: auto auto auto auto auto auto;
+    /* border: 1px solid #c91313 */
+}
+.odf_packagingDetailsRow > input {
+    display: flex;
+    align-items: center;
+    width: 80px;
+    /* border: 1px solid #3811e9 */
+  }
+.odf_nbedroomDetailsRow {
+    display: grid;
+    grid-column: span 2;
+    gap: 2px;
+    grid-template-columns: auto auto;
+    /* border: 1px solid #c91313 */
+}
+.odf_nbedroomRow > input {
+    display: flex; 
+    align-items: center;
+    width: 80px;
+/* border: 1px solid #3811e9 */
+}
+.odf_sqfeetDetailsRow {
+    display: grid;
+    grid-column: span 2;
+    gap: 2px;
+    grid-template-columns: auto auto;
+    /* border: 1px solid #c91313 */
+}
+.odf_sqfeetRow > input {
+    display: flex; 
+    align-items: center;
+    width: 80px;
+/* border: 1px solid #3811e9 */
+}
+.odf_customDetailsRow {
+    display: grid;
+    grid-column: span 2;
+    gap: 2px;
+    grid-template-columns: auto auto auto auto auto auto;
+    /* border: 1px solid #c91313 */
+}
+.odf_customDetailsRow > input {
+    display: flex; 
+    align-items: center;
+    width: 80px;
+/* border: 1px solid #3811e9 */
+}
+.odf_su
+bmit {
+    grid-column: span 2;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+  }
+
+

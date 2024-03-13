@@ -1,0 +1,235 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Order Details
+{% endblock %}
+
+{% block ceiling %}
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta charset="UTF-8" />
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+/>
+<title>Order Details Form</title>
+<link
+  rel="stylesheet"
+  type="text/css"
+  href="/static/tomtomSearchBox.css"
+/>
+<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.1.2-public-preview.15/services/services-web.min.js"></script>
+<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js"></script>
+{% endblock %}
+
+{% block main %}
+
+<h5>ORDER DETAILS</h5>
+
+<div class="odf_container">
+    <form class="odf_form">
+      <div id="odf_locationPickupDiv" class="odf_row"></div>
+      <div id="odf_locationDropoffDiv" class="odf_row"></div>
+      <div class="odf_row">
+        <input class="odf_input" id="odf_inpPickupDate" autocomplete="off" name="pickup_date" placeholder="Pickup date" type="text" onfocus="(this.type='date')">
+      </div>
+      <div class="odf_row">
+        <input class="odf_input" id="odf_inpDropoffDate" autocomplete="off" name="dropoff_date" placeholder="Drop-off date" type="text" onfocus="(this.type='date')">
+      </div>
+      <div class="odf_row">
+        <h6 style="margin-top: 15px; margin-bottom: 15px;">Freight dimensions</h6>
+      </div>
+      <div class="odf_radioOptionsRow">
+        <label>
+          Estimate by:
+        </label>
+        <label>
+          <input type="radio" id="packagingTypeRdBtn" name="packaging" value="packaging">
+          Packaging Type
+        </label>
+        <label>
+          <input type="radio" id="nbedroomRdBtn" name="packaging" value="#bedrooms">
+          # Bedrooms
+        </label>
+        <label>
+          <input type="radio" id="sqfeetRdBtn" name="packaging" value="sqfeet">
+          Sq Feet
+        </label>
+        <label>
+          <input type="radio" id="customRdBtn" name="packaging" value="custom">
+          Custom
+        </label>
+      </div>
+
+      <div id="odf_packagingDetailsRow" class="odf_packagingDetailsRow hidden">
+        <label for="packagingType">Type:</label>
+        <select id="packagingType" name="packagingType">
+          <option value="box">Box</option>
+          <option value="pallet">Pallet</option>
+          <option value="crate">Crate</option>
+          <option value="bundle">Bundle</option>
+          <option value="roll">Roll</option>
+          <option value="drum">Drum</option>
+        </select>
+        <label for="length">Length:</label>
+        <input type="text" id="length" name="length">
+        <label for="width">Width:</label>
+        <input type="text" id="width" name="width">
+        <label for="height">Height:</label>
+        <input type="text" id="height" name="height">
+        <label for="weight">Weight:</label>
+        <input type="text" id="weight" name="weight">
+        <label for="qty">Qty:</label>
+        <input type="text" id="qty" name="qty">
+      </div>
+
+      <div id="odf_nbedroomRow" class="odf_nbedroomDetailsRow hidden">
+        <label for="nbedrooms">Number of bedrooms:</label>
+        <select id="nbedrooms" name="nbedrooms">
+          <option value="roomLess">Room or less</option>
+          <option value="1bedroom">1-bedroom</option>
+          <option value="2bedroom">2-bedroom</option>
+          <option value="3bedroom">3-bedroom</option>
+          <option value="4bedroomMore">4-bedroom or more</option>
+        </select>
+        <label for="nbedroomDescription">Additional description:</label>
+        <input type="text" id="nbedroomDescription" name="nbedroomDescription">        
+      </div>
+      <div id="odf_sqfeetRow" class="odf_sqfeetDetailsRow hidden">
+        <label for="sqfeet">Sq Feet:</label>
+        <select id="sqfeet" name="sqfeet">
+          <option value="0_500sqfeet">0-500 sq feet</option>
+          <option value="500_1000sqfeet">500-1000 sq feet </option>
+          <option value="1000_5000sqfeet">1000-5000 sq feet</option>
+          <option value="5000_10000sqfeet">5000-10000 sq feet</option>
+          <option value="moreThan10000sqfeet">more than 10000 sq feet</option>
+        </select>
+        <label for="sqfeetDescription">Additional description:</label>
+        <input type="text" id="sqfeetDescription" name="sqfeetDescription"> 
+      </div>        
+      <div id="odf_customRow" class="odf_customDetailsRow hidden">
+        <label for="customDescription">Description:</label>
+        <input type="text" id="customDescription" name="customDescription">          
+        <label for="length">Length:</label>
+        <input type="text" id="length" name="length">
+        <label for="width">Width:</label>
+        <input type="text" id="width" name="width">
+        <label for="height">Height:</label>
+        <input type="text" id="height" name="height">
+        <label for="weight">Weight:</label>
+        <input type="text" id="weight" name="weight">
+        <label for="qty">Qty:</label>
+        <input type="text" id="qty" name="qty">
+      </div>      
+
+      <div class="odf_submit">
+        <button class="btn btn-primary" style="margin-top: 15px; margin-bottom: 15px;" type="submit">Place order</button>
+      </div>       
+    </form>
+</div>
+
+{% endblock %}
+
+{% block floor %}
+
+<script>
+    // Search Box for pickup location
+    var options_pickupLocation = {
+      searchOptions: {
+        key: "JAWXTc4obEZRZNWosT1Pe3dufqZHKrDo",
+        language: "en-GB",
+        limit: 5,
+      },
+      autocompleteOptions: {
+        key: "JAWXTc4obEZRZNWosT1Pe3dufqZHKrDo",
+        language: "en-GB",
+      },
+      labels: {
+        placeholder: "Pickup location",
+      },
+      showSearchButton: false,
+      cssStyleCheck: true,            
+    }
+
+    var ttSearchBox_pickupLocation = new tt.plugins.SearchBox(tt.services, options_pickupLocation)
+    var searchBoxHTML_pickupLocation = ttSearchBox_pickupLocation.getSearchBoxHTML()
+
+    // Appending pickup location box and label to the form
+    let odf_locationPickupDiv = document.getElementById('odf_locationPickupDiv')
+
+    odf_locationPickupDiv.appendChild(searchBoxHTML_pickupLocation)
+    searchBoxHTML_pickupLocation.classList.add("odf_input")
+  
+    // Search Box for drop-off location
+    var options_dropoffLocation = {
+      searchOptions: {
+        key: "JAWXTc4obEZRZNWosT1Pe3dufqZHKrDo",
+        language: "en-GB",
+        limit: 5,
+      },
+      autocompleteOptions: {
+        key: "JAWXTc4obEZRZNWosT1Pe3dufqZHKrDo",
+        language: "en-GB",
+      },
+      labels: {
+        placeholder: "Drop-off location",
+      },
+      showSearchButton: false,
+      cssStyleCheck: true,            
+    }
+
+    var ttSearchBox_dropoffLocation = new tt.plugins.SearchBox(tt.services, options_dropoffLocation)
+    var searchBoxHTML_dropoffLocation = ttSearchBox_dropoffLocation.getSearchBoxHTML()
+
+    // Appending dropoff location box and label to the form
+    let odf_locationDropoffDiv = document.getElementById('odf_locationDropoffDiv')    
+    
+    odf_locationDropoffDiv.appendChild(searchBoxHTML_dropoffLocation)
+    searchBoxHTML_dropoffLocation.classList.add("odf_input")
+    
+    
+    $(document).ready(function() {
+
+      // Displaying content when Packaging Type option is selected
+      $("#packagingTypeRdBtn").on("change", function() {
+        if ($(this).is(":checked")) {
+          hideAllEstimateOutput()
+          $("#odf_packagingDetailsRow").removeClass('hidden')       
+        }
+      });
+
+      // Displaying content when # Bedroom option is selected    
+      $("#nbedroomRdBtn").on("change", function() {
+        if ($(this).is(":checked")) {
+          hideAllEstimateOutput()
+          $("#odf_nbedroomRow").removeClass('hidden')       
+        }
+      });      
+
+      // Displaying content when Sq Feet option is selected    
+      $("#sqfeetRdBtn").on("change", function() {
+        if ($(this).is(":checked")) {
+          hideAllEstimateOutput()
+          $("#odf_sqfeetRow").removeClass('hidden')       
+        }
+      });
+
+      // Displaying content when Custom option is selected    
+      $("#customRdBtn").on("change", function() {
+        if ($(this).is(":checked")) {
+          hideAllEstimateOutput()
+          $("#odf_customRow").removeClass('hidden')       
+        }
+      });
+
+      // Function to hide all estimate details
+      function hideAllEstimateOutput() {
+        $("#odf_packagingDetailsRow").addClass('hidden')
+        $("#odf_nbedroomRow").addClass('hidden')
+        $("#odf_sqfeetRow").addClass('hidden')
+        $("#odf_customRow").addClass('hidden')        
+      }
+    });
+  
+  </script>
+
+{% endblock %}

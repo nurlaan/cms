@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Freight orders
+{% endblock %}
+
+{% block ceiling %}
+
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+  <meta charset="UTF-8" />
+  <meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+  />
+
+  <link
+  rel="stylesheet"
+  type="text/css"
+  href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps.css"
+  />
+  <style>
+  #map {
+      width: 97.8vw;
+      height: 97.8vh;
+  }
+  </style>
+
+{% endblock %}
+
+{% block main %}
+
+    <div id="map" class="map"></div>
+  
+{% endblock %}
+
+{% block floor %}
+
+<script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.0/maps/maps-web.min.js"></script>
+<script>
+  let center = [-118, 34];
+  tt.map({
+    key: "JAWXTc4obEZRZNWosT1Pe3dufqZHKrDo",
+    container: "map",
+    center: center,
+    zoom: 8
+  });
+
+  map.on('load', () => {
+    new tt.Marker().setLngLat(center).addTo(map);
+  });
+</script>
+
+{% endblock %}
