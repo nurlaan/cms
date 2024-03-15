@@ -1,0 +1,3 @@
+- Cargo Matching Services web-application prototype
+- Use command "flask run" to launch the platform
+- Dummy username: nurlan & password: 123
