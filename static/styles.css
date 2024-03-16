@@ -38,19 +38,26 @@ nav .navbar-brand .green
 
 /* [Order Details] layout */
 :root {
-   --odf_inputBoxfontSize: 14px;
+   --odf_inputBoxfontSize: 15px;
    --odf_paddingLeft: 0px;
    --odf_inputBoxWidth: 90%;
 }
 
 /* tt_SearchBox plugin parameters */
-/* .tt-search-box-input {
+.tt-searchbox-filter-label {
+    padding: 0;
+    padding-left: var(--odf_paddingLeft);
+}
+.tt-search-box-input-container {
+    padding: 0;
+    padding-left: var(--odf_paddingLeft);
+}
+
+.tt-search-box-input {
     font-size: var(--odf_inputBoxfontSize);
     padding-left: var(--odf_paddingLeft);
     width: var(--odf_inputBoxWidth);
 }
-*/
-
 
 .odf_container {
     display: inline-grid;
