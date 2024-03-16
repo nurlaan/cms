@@ -39,33 +39,32 @@ nav .navbar-brand .green
 /* [Order Details] layout */
 :root {
    --odf_inputBoxfontSize: 15px;
-   --odf_paddingLeft: 0px;
-   --odf_inputBoxWidth: 90%;
+   --odf_inputBoxWidth: 95%;
+   --odf_inputBoxPadding: 2px 8px;
 }
 
-/* tt_SearchBox plugin parameters */
-.tt-searchbox-filter-label {
+/* tt_searchbox plugin parameters */
+/* Padding of tt-searchbox and native input boxes are controlled separately */
+/* .tt-searchbox-filter-label {
     padding: 0;
-    padding-left: var(--odf_paddingLeft);
-}
+} */
 .tt-search-box-input-container {
     padding: 0;
-    padding-left: var(--odf_paddingLeft);
-}
+} 
 
 .tt-search-box-input {
     font-size: var(--odf_inputBoxfontSize);
-    padding-left: var(--odf_paddingLeft);
+    padding: var(--odf_inputBoxPadding);
     width: var(--odf_inputBoxWidth);
 }
 
+/* Native boxes and tt-search box combined control */
 .odf_container {
     display: inline-grid;
     justify-content: center;
     align-content: center;
     grid-template-columns: auto;
     font-size: var(--odf_inputBoxfontSize);
-    border: 1px solid hsl(120, 100%, 80%)
 }
 .odf_form {
     display: grid;
@@ -75,10 +74,17 @@ nav .navbar-brand .green
 .odf_input {
     box-sizing: border-box;
     width: var(--odf_inputBoxWidth);
-    padding-left: var(--odf_paddingLeft);
-    margin-left: 7px;
-    
+    margin: 4px 7px;
+    transition: border-color 0.2s ease, box-shadow 0.2 ease;
 }
+.odf_input:focus {
+    box-shadow: 0 2px 9px -1px rgba(0, 0, 0, 0.19);
+}
+/* Padding control of input boxes not related to tt-search-box */
+.odf_input_padding {
+    padding: var(--odf_inputBoxPadding);
+}
+
 .odf_row {
     display: grid;
     gap: 0px;
