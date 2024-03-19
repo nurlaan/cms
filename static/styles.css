@@ -45,12 +45,15 @@ nav .navbar-brand .green
 
 /* tt_searchbox plugin parameters */
 /* Padding of tt-searchbox and native input boxes are controlled separately */
-/* .tt-searchbox-filter-label {
-    padding: 0;
-} */
+
+/* Below is a cancellation of all factory padding and border setup for tt-searchbox*/
 .tt-search-box-input-container {
     padding: 0;
+    border: none;
 } 
+
+/*Below is a cancellation of all factory border setups for tt-searchbox*/
+
 
 .tt-search-box-input {
     font-size: var(--odf_inputBoxfontSize);
@@ -58,7 +61,7 @@ nav .navbar-brand .green
     width: var(--odf_inputBoxWidth);
 }
 
-/* Native boxes and tt-search box combined control */
+/* odf container-wise control combined for native boxes and tt-searchbox*/
 .odf_container {
     display: inline-grid;
     justify-content: center;
@@ -71,11 +74,12 @@ nav .navbar-brand .green
     grid-template-columns: auto auto;
     text-align: left;
 }
+
 .odf_input {
-    box-sizing: border-box;
     width: var(--odf_inputBoxWidth);
     margin: 4px 7px;
     transition: border-color 0.2s ease, box-shadow 0.2 ease;
+    border: 1px solid hsl(0, 0%, 60%);
 }
 .odf_input:focus {
     box-shadow: 0 2px 9px -1px rgba(0, 0, 0, 0.19);
