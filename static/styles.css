@@ -38,22 +38,24 @@ nav .navbar-brand .green
 
 /* [Order Details] layout */
 :root {
-   --odf_inputBoxfontSize: 15px;
-   --odf_inputBoxWidth: 95%;
-   --odf_inputBoxPadding: 2px 8px;
+    /* colors */
+    --boxShadow: hsl(0, 0%, 70%);
+
+    /* odf setups */
+    --odf_inputBoxfontSize: 15px;
+    --odf_inputBoxWidth: 95%;
+    --odf_inputBoxPadding: 2px 8px;
+    --odf_inputBoxBoxShadow: 0 2px 10px -1px var(--boxShadow);
 }
 
 /* tt_searchbox plugin parameters */
 /* Padding of tt-searchbox and native input boxes are controlled separately */
 
-/* Below is a cancellation of all factory padding and border setup for tt-searchbox*/
+/* Below is a cancellation of all factory padding and border setup for tt-searchbox */
 .tt-search-box-input-container {
     padding: 0;
     border: none;
-} 
-
-/*Below is a cancellation of all factory border setups for tt-searchbox*/
-
+}
 
 .tt-search-box-input {
     font-size: var(--odf_inputBoxfontSize);
@@ -78,12 +80,23 @@ nav .navbar-brand .green
 .odf_input {
     width: var(--odf_inputBoxWidth);
     margin: 4px 7px;
-    transition: border-color 0.2s ease, box-shadow 0.2 ease;
-    border: 1px solid hsl(0, 0%, 60%);
+    transition: border-color .2s ease, box-shadow 0.2s ease; 
 }
-.odf_input:focus {
-    box-shadow: 0 2px 9px -1px rgba(0, 0, 0, 0.19);
+
+.odf_box {    
+    border: 1px solid hsl(0, 0%, 70%);
+    border-radius: 5px;
 }
+.odf_box:focus {
+    outline: none;
+    box-shadow: var(--odf_inputBoxBoxShadow);
+}
+
+.mapboxgl-control-container .tt-search-box-input-container,
+.tt-search-box-input-container.-focused {
+    box-shadow: var(--odf_inputBoxBoxShadow);
+}
+
 /* Padding control of input boxes not related to tt-search-box */
 .odf_input_padding {
     padding: var(--odf_inputBoxPadding);
@@ -159,8 +172,7 @@ nav .navbar-brand .green
     width: 80px;
 /* border: 1px solid #3811e9 */
 }
-.odf_su
-bmit {
+.odf_su{
     grid-column: span 2;
     text-align: center;
 }

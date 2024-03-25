@@ -30,10 +30,10 @@
       <div id="odf_locationPickupDiv" class="odf_row"></div>
       <div id="odf_locationDropoffDiv" class="odf_row"></div>
       <div class="odf_row">
-        <input class="odf_input odf_input_padding" id="odf_inpPickupDate" autocomplete="off" name="pickup_date" placeholder="Pickup date" type="text" onfocus="(this.type='date')">
+        <input class="odf_input odf_input_padding odf_box" id="odf_inpPickupDate" autocomplete="off" name="pickup_date" placeholder="Pickup date" type="text" onfocus="(this.type='date')">
       </div>
       <div class="odf_row">
-        <input class="odf_input odf_input_padding" id="odf_inpDropoffDate" autocomplete="off" name="dropoff_date" placeholder="Drop-off date" type="text" onfocus="(this.type='date')">
+        <input class="odf_input odf_input_padding odf_box" id="odf_inpDropoffDate" autocomplete="off" name="dropoff_date" placeholder="Drop-off date" type="text" onfocus="(this.type='date')">
       </div>
       <div class="odf_row">
         <h6 style="margin-top: 15px; margin-bottom: 15px;">Freight dimensions</h6>
@@ -158,6 +158,7 @@
 
     odf_locationPickupDiv.appendChild(searchBoxHTML_pickupLocation)
     searchBoxHTML_pickupLocation.classList.add("odf_input")
+    searchBoxHTML_pickupLocation.classList.add("odf_box")
   
     // Search Box for drop-off location
     var options_dropoffLocation = {
@@ -185,6 +186,7 @@
     
     odf_locationDropoffDiv.appendChild(searchBoxHTML_dropoffLocation)
     searchBoxHTML_dropoffLocation.classList.add("odf_input")
+    searchBoxHTML_dropoffLocation.classList.add("odf_box")
     
     
     $(document).ready(function() {

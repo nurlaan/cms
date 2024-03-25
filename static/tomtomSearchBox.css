@@ -9,7 +9,7 @@
 
 /* Makes effect on added filters appearing in the search-box*/ 
 .tt-searchbox-filter-label {
-    font-size: 15px;    
+    font-size: 15px;
     background-color: #edf2f7;
     padding: 2px 0 2px 4px;
     border-radius: 2px;
@@ -64,7 +64,7 @@
     transition: border-color .2s ease, box-shadow .2s ease
 }
 
-/* Makes effect on the border of input box */
+/* Makes effect on the border of input box - seems the border color doesn't go transparent */
 .tt-search-box-input-container.-focused {
     border-color: transparent;
 }
@@ -168,7 +168,7 @@
 
 /* Makes effect on the close icon of the search box when hovered */
 .tt-search-box-close-icon:hover {
-    fill: red;/* #7a7e80 */
+    fill: #7a7e80
 }
 
 /* Hides the close icon of the search box */
